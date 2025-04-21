@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автосервиз Тодоров - Резервации</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="fade-in">
+        <h1>Автосервиз Тодоров</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="about.html">За нас</a></li>
+                <li><a href="reservations.html" class="cta-button">Запазете час сега</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="reservation-section reveal">
+        <h2>Запазете час</h2>
+        <div class="working-hours">
+            <h3>Налични часове</h3>
+            <p>Понеделник - Петък: 9:00, 10:00, 11:00, 12:00, 14:00, 15:00, 16:00, 17:00</p>
+            <p>Събота: 10:00, 11:00, 12:00, 13:00</p>
+            <p>Неделя: Затворено</p>
+        </div>
+        <form id="reservation-form" onsubmit="return validateForm(event)">
+            <div class="form-group">
+                <label for="first-name">Име:*</label>
+                <input type="text" id="first-name" name="first-name" required>
+                <span class="error" id="first-name-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="last-name">Фамилия:*</label>
+                <input type="text" id="last-name" name="last-name" required>
+                <span class="error" id="last-name-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Имейл:*</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error" id="email-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Парола:*</label>
+                <input type="password" id="password" name="password" required>
+                <small>(Паролата трябва да съдържа големи и малки букви, числа и символи)</small>
+                <span class="error" id="password-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Дата:*</label>
+                <input type="date" id="date" name="date" required>
+                <span class="error" id="date-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="time">Час:*</label>
+                <select id="time" name="time" required>
+                    <option value="" disabled selected>Изберете час</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                </select>
+                <span class="error" id="time-error"></span>
+            </div>
+
+            <button type="submit" class="cta-button">Запазете час</button>
+        </form>
+    </section>
+
+    <!-- Модален прозорец -->
+    <div id="modal" class="modal">
+        <div class="modal-content fade-in">
+            <span class="close">×</span>
+            <h3>Резервацията е успешна!</h3>
+            <p id="modal-message"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Автосервиз Тодоров. Всички права запазени.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

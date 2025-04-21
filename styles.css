@@ -1,0 +1,546 @@
+/* Основни стилове */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5f5f5;
+    color: #1c2526;
+    line-height: 1.6;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes reveal {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes liftFadeIn {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.slide-in-left {
+    animation: slideInLeft 1s ease-in-out;
+}
+
+.slide-in-right {
+    animation: slideInRight 1s ease-in-out;
+}
+
+.reveal {
+    opacity: 0;
+    animation: reveal 1s ease-in-out forwards;
+}
+
+.reveal:nth-child(1) { animation-delay: 0.2s; }
+.reveal:nth-child(2) { animation-delay: 0.4s; }
+.reveal:nth-child(3) { animation-delay: 0.6s; }
+
+/* Хедър */
+header {
+    background: linear-gradient(135deg, #C0C0C0, #1c2526);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 5px solid #800020;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    color: #800020;
+    font-size: 2.8em;
+}
+
+/* Навигация */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    border-radius: 25px;
+}
+
+nav ul li a:hover {
+    background-color: #800020;
+    color: #fff;
+}
+
+nav ul li a.cta-button {
+    background-color: #800020;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+nav ul li a.cta-button:hover {
+    transform: scale(1.05);
+    background-color: #1c2526;
+}
+
+/* Герой секция с нова фонова снимка (Porsche) */
+.hero {
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h2 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: #800020;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button:hover {
+    transform: scale(1.1);
+    background-color: #1c2526;
+}
+
+/* Услуги */
+.services {
+    padding: 60px 20px;
+    background-color: #fff;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.8em;
+    color: #800020;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background-color: #1c2526;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.service-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.service-item {
+    flex: 1 1 300px;
+    background-color: #C0C0C0;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.service-item h3 {
+    color: #800020;
+    font-size: 1.6em;
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    color: #1c2526;
+}
+
+/* Отзиви */
+.testimonials {
+    padding: 60px 20px;
+    background-color: #1c2526;
+    color: #fff;
+}
+
+.testimonial-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.testimonial-item {
+    flex: 1 1 300px;
+    background-color: #C0C0C0;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial-item p {
+    font-style: italic;
+    margin-bottom: 15px;
+    color: #1c2526;
+}
+
+.testimonial-item h4 {
+    color: #800020;
+}
+
+/* За нас */
+.about-section {
+    padding: 60px 20px;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+}
+
+.about-text {
+    flex: 1 1 50%;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    color: #1c2526;
+}
+
+/* Стил за снимката в "За нас" */
+.team-image-container {
+    position: relative;
+    margin: 30px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #C0C0C0, #fff);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.team-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 15px;
+    border: 5px solid #800020;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: liftFadeIn 1.5s ease-in-out forwards;
+}
+
+.team-image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.image-caption {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: #800020;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Карта */
+.map-container {
+    flex: 1 1 50%;
+    max-width: 500px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+    border: 3px solid #800020;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-container iframe:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Контакти */
+.contact-info {
+    padding: 20px;
+    background-color: #C0C0C0;
+    border-radius: 15px;
+    margin: 20px;
+}
+
+.contact-info h3 {
+    color: #800020;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #1c2526;
+}
+
+/* Резервации */
+.reservation-section {
+    padding: 60px 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.reservation-section h2 {
+    text-align: center;
+    color: #800020;
+    margin-bottom: 40px;
+}
+
+.working-hours {
+    background-color: #C0C0C0;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.working-hours h3 {
+    color: #800020;
+    margin-bottom: 15px;
+}
+
+.working-hours p {
+    color: #1c2526;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #1c2526;
+    font-weight: bold;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #1c2526;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form select:focus {
+    border-color: #800020;
+    outline: none;
+}
+
+form small {
+    color: #666;
+    font-size: 0.9em;
+    display: block;
+}
+
+form .error {
+    color: #800020;
+    font-size: 0.9em;
+    display: block;
+    min-height: 20px;
+}
+
+/* Модален прозорец */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: #800020;
+}
+
+.modal-content h3 {
+    color: #800020;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    color: #1c2526;
+}
+
+/* Футър */
+footer {
+    background: linear-gradient(135deg, #1c2526, #000);
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.social-links a {
+    color: #800020;
+    margin: 0 15px;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #fff;
+}
+
+/* Адаптивен дизайн */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .hero {
+        height: 500px;
+    }
+    .hero-content h2 {
+        font-size: 3em;
+    }
+    .service-gallery, .testimonial-gallery {
+        gap: 20px;
+    }
+    .about-text, .map-container {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 767px) and (min-width: 480px) {
+    .hero {
+        height: 400px;
+    }
+    .hero-content h2 {
+        font-size: 2.5em;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .service-item, .testimonial-item {
+        flex: 1 1 100%;
+    }
+    .about-text, .map-container {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 479px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    .hero {
+        height: 300px;
+    }
+    .hero-content h2 {
+        font-size: 2em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .cta-button {
+        padding: 10px 25px;
+    }
+    .team-image {
+        max-width: 300px;
+    }
+}
